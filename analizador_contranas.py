@@ -23,6 +23,15 @@ def detectar_secuencias(contrasena, largo=3):
             return True
     return False
 
+def detectar_datos_personales(contrasena, datos_personales):
+    """Devuelve True si la contraseña contiene algún dato personal
+    (nombre, apellido, año de nacimiento, DNI, etc.)."""
+    texto = contrasena.lower()
+    for dato in datos_personales:
+        if len(dato) >= 3 and dato.lower() in texto:
+            return True
+    return False
+
 def calcular_puntaje(contrasena):
     """Calcula un puntaje de 0 a 5 segun criterios basicos de seguridad."""
     criterios = {
