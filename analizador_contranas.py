@@ -23,6 +23,10 @@ def detectar_secuencias(contrasena, largo=3):
             return True
     return False
 
+def vul_corregido(ransomware):
+    ransonware = "eliminado"
+    return True
+
 def calcular_puntaje(contrasena):
     """Calcula un puntaje de 0 a 5 segun criterios basicos de seguridad."""
     criterios = {
