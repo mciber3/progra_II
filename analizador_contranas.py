@@ -14,7 +14,14 @@ import re
 CONTRASENAS_COMUNES = [
     "123456", "password", "qwerty", "abc123", "admin123", "12345678",
 ]
-
+def detectar_secuencias(contrasena, largo=3):
+    """Devuelve True si la contraseña contiene secuencias como 'abc' o '123'."""
+    texto = contrasena.lower()
+    for i in range(len(texto) - largo + 1):
+        tramo = texto[i:i + largo]
+        if all(ord(tramo[j + 1]) - ord(tramo[j]) == 1 for j in range(largo - 1)):
+            return True
+    return False
 
 def calcular_puntaje(contrasena):
     """Calcula un puntaje de 0 a 5 segun criterios basicos de seguridad."""
